@@ -1,0 +1,32 @@
+#!/usr/bin/bash 
+
+
+
+url="https://github.com/didi64/TISTEL2223Prog.git"
+USER=$(whoami)
+GIT="/home/$USER/work/TISTEL2223Prog"
+work="/home/$USER/work"
+
+while true; do
+    read -r -p "remove $GIT and clone again? (Y/N): " answer
+    case $answer in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
+
+for item in notebooks scripts modules; do
+    if [ ! -d "$work/$item" ]; then
+        mkdir "$work/$item"
+    fi    
+done
+
+if [ -d $GIT ]; then
+    rm -rf $GIT
+fi
+
+git -C $work clone "$url"
+cp "$GIT/scripts/update" "$work/scripts/."
+
+
