@@ -27,6 +27,7 @@ if [ -d $GIT ]; then
 fi
 
 git -C $work clone "$url"
+find "$GIT" -type f -name "*.ipynb" -exec chmod 444 {} \;
 cp "$GIT/scripts/update" "$work/scripts/."
 
 

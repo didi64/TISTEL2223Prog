@@ -9,7 +9,7 @@ contents="${GIT}/contents.txt"
 
 is_number='^[0-9]+$'
 
-help="\nUsage: Update [<file>| <number>]\n\nWithout arguments all files are updated, but not copied.\nOtherwise, the file or all files from lessen <number> are updated and copied to notebooks\nIn case of errors: try Update -f [<file>| <number>]\n"
+help="\nUsage: Update [<file>| <number>]\n\nWithout arguments all files are updated, but not copied.\nOtherwise, the file or all files from lessen <number> are updated and copied to notebooks\nIn case of errors: try update -f [<file>| <number>]\n"
 
 # function
 process_file () {
@@ -33,7 +33,7 @@ if [[ "$options" == "-f" ]]; then
 fi
 
 git -C $GIT pull
-find "$GIT" -type f -name "*.ipynb" -exec chmod 644 {} \;
+find "$GIT" -type f -name "*.ipynb" -exec chmod 444 {} \;
 
 # process args
 for item in "${args[@]}"; do
