@@ -11,13 +11,10 @@ cd
 if [ ! -d "$distro_dir" ]; then
         mkdir "$distro_dir"
 fi  
-if [ f "$distro_dir" ]; then
-        mkdir "$distro_dir"
-fi  
-
-wget -O "${distro_dir}${image_name}.gz" "${image_url}"
-gunzip "${distro_dir}${image_name}.gz"
-wsl --import $distro_name ${distro_dir} "${distro_dir}${image_name}"
+ 
+wget -O "${distro_dir}/${image_name}.gz" "${image_url}"
+gunzip "${distro_dir}/${image_name}.gz"
+wsl --import $distro_name ${distro_dir} "${distro_dir}/${image_name}"
 
 
 # wsl -d ubuntu_docker
