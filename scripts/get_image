@@ -1,0 +1,39 @@
+#!/usr/bin/bash 
+
+
+distro_dir="linux_distros"
+distro_name="ubuntu_docker"
+image_name="ubuntu-base-20.04.1-base-amd64.tar"
+image_url="https://cdimage.ubuntu.com/ubuntu-base/releases/focal/release/${image_name}.gz"
+ 
+
+cd
+if [ ! -d "$distro_dir" ]; then
+        mkdir "$distro_dir"
+fi  
+if [ f "$distro_dir" ]; then
+        mkdir "$distro_dir"
+fi  
+
+wget -O "${distro_dir}${image_name}.gz" "${image_url}"
+gunzip "${distro_dir}${image_name}.gz"
+wsl --import $distro_name ${distro_dir} "${distro_dir}${image_name}"
+
+
+# wsl -d ubuntu_docker
+# myuser=<username>
+# echo "$myuser ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$myuser
+# echo -e "[user]\ndefault=$myuser" >> /etc/wsl.conf
+# exit
+
+
+# cd Jupytlab/scripts
+# wsl -d ubuntu_docker scripts/install_docker
+
+
+# start dockercontainer from git-bash
+# cd Jypterlab
+# wsl -d distro start
+
+
+
