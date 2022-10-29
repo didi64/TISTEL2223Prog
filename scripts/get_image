@@ -12,7 +12,7 @@ if [ ! -d "$distro_dir" ]; then
         mkdir "$distro_dir"
 fi  
  
-wget -O "${distro_dir}/${image_name}.gz" "${image_url}"
+curl  "${image_url}" -o "${distro_dir}/${image_name}.gz"
 gunzip "${distro_dir}/${image_name}.gz"
 wsl --import $distro_name ${distro_dir} "${distro_dir}/${image_name}"
 

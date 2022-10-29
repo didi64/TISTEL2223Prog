@@ -1,0 +1,7 @@
+#!/usr/bin/bash 
+
+wsl --cd ~/Jupyterlab -d ubuntu_docker jlab
+wsl -t ubuntu_docker
+
+
+

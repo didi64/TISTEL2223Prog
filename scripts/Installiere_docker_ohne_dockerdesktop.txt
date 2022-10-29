@@ -1,0 +1,49 @@
+
+# Zeilen, die mit # starten sind Kommentare und Instruktionen,
+# die anderen Zeilen sind Befehle, die in git-bash kopiert und ausgefuehrt werden sollen
+
+
+# Docker installieren ohne Docker Desktop
+# In Windows: oeffnet git-bash:
+
+cd ~/Juptyterlab/TISTEL2223Prog/scripts
+./get_image
+
+# started ubuntu
+wsl -d ubuntu_docker
+
+# ersetze probst mit deinem Benutzername!
+myuser=probst
+
+echo -e "[user]\ndefault=$myuser" >> /etc/wsl.conf
+exit
+
+wsl -d ubuntu_docker ./install_docker
+
+# teste ob docker service startet:
+
+wsl -u root -d ubuntu_docker service start docker
+# meldet, dass docker gestartet
+
+wsl -u root -d ubuntu_docker service stopp docker
+# meldet, dass docker gestoppt
+
+# schliesse git-bash
+# oeffne git-bash als Administrator:
+# - klicke den Windows Start-Button und tippe "bash"
+# - waehle "start as administrator"
+
+# in git-bash
+mkdir -p /usr/local/bin
+cp ~/Jupyterlab/TISTEL2223Prog/scripts/jlab /usr/local/bin/.
+
+# schliesse git-bash
+
+# oeffne git-bash (normal, nicht als Admin)
+# starte Jupyterlab
+jlab
+
+
+
+
+
