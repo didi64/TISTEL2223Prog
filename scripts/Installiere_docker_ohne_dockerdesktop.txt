@@ -1,23 +1,25 @@
-
 # Zeilen, die mit # starten sind Kommentare und Instruktionen,
 # die anderen Zeilen sind Befehle, die in git-bash kopiert und ausgefuehrt werden sollen
 
 
 # Docker installieren ohne Docker Desktop
+
 # In Windows: oeffnet git-bash:
 
 cd ~/Jupyterlab/TISTEL2223Prog/scripts
 ./get_image
 
 # started ubuntu
+
 wsl -d ubuntu_docker
 
+# Benutzer hinzufuegen
 # ersetze probst mit deinem Benutzername!
+
 myuser=probst
-
 echo -e "[user]\ndefault=$myuser" >> /etc/wsl.conf
-
 adduser $myuser
+
 # password obligatorisch, alles andere optional
 
 usermod -aG sudo $myuser
@@ -29,37 +31,60 @@ exit
 
 wsl -t ubuntu_docker
 wsl -d ubuntu_docker
-# Promt sollte nun Benutzernamen zeigen
 
-exit
+# Prompt sollte nun Benutzernamen zeigen
 
 # docker installieren
-wsl -d ubuntu_docker ./install_docker
+
+./install_docker
+
+# fragt nach Regioncode: 8, 63
 
 # teste ob docker service startet:
 
-wsl -u root -d ubuntu_docker service start docker
+sudo service docker start
+
 # meldet, dass docker gestartet
 
-wsl -u root -d ubuntu_docker service stopp docker
+sudo service docker stop
+
 # meldet, dass docker gestoppt
 
-# schliesse git-bash
+exit
+
+
 # oeffne git-bash als Administrator:
 # - klicke den Windows Start-Button und tippe "bash"
 # - waehle "start as administrator"
 
-# in git-bash
+# in Administrator git-bash
+
 mkdir -p /usr/local/bin
 cp ~/Jupyterlab/TISTEL2223Prog/scripts/jlab /usr/local/bin/.
 
-# schliesse git-bash
+# schliesse Administrator git-bash
 
-# oeffne git-bash (normal, nicht als Admin)
+
+
+# kopiere start-script (in normaler git-bash)
+
+cp start ~/Jupyterlab/.start
+
 # starte Jupyterlab
 jlab
 
 # stoppe den Jupyterlab Server mit CONTROL-C im git-bash
 
+# von nun an laesst sich juptyerlab so starten:
+# oeffne git-bash, dann tippe in git-bash
+
+jlab
+
+# offne nun den Browser und gib localhost:10000 als url ein
 
 
+# Docker-Desktop und nicht mehr benoetigte images entfernen:
+# in Docker-Desktop:
+# stoppe laufenden Container und loesche diesen
+# klicke auf images, loesche alle images
+# uninstalliere Docker-Desktop

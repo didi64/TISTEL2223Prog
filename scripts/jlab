@@ -1,7 +1,7 @@
 #!/usr/bin/bash 
 
 wsl -u root -d ubuntu_docker service docker start
-wsl --cd ~/Jupyterlab -d ubuntu_docker jlab
+wsl --cd ~/Jupyterlab -d ubuntu_docker ./.start
 wsl -u root -d ubuntu_docker service docker stop
 wsl -t ubuntu_docker
 
