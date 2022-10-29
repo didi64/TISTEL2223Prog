@@ -6,7 +6,7 @@
 # Docker installieren ohne Docker Desktop
 # In Windows: oeffnet git-bash:
 
-cd ~/Juptyterlab/TISTEL2223Prog/scripts
+cd ~/Jupyterlab/TISTEL2223Prog/scripts
 ./get_image
 
 # started ubuntu
@@ -16,8 +16,24 @@ wsl -d ubuntu_docker
 myuser=probst
 
 echo -e "[user]\ndefault=$myuser" >> /etc/wsl.conf
+
+adduser $myuser
+# password obligatorisch, alles andere optional
+
+usermod -aG sudo $myuser
+apt update
+apt install sudo -y
 exit
 
+# teste, ob Benutzer hinzugefuegt:
+
+wsl -t ubuntu_docker
+wsl -d ubuntu_docker
+# Promt sollte nun Benutzernamen zeigen
+
+exit
+
+# docker installieren
 wsl -d ubuntu_docker ./install_docker
 
 # teste ob docker service startet:

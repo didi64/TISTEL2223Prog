@@ -29,7 +29,7 @@ fi
 
 # update everything
 if [[ "$options" == "-f" ]]; then
-  git -C $GIT  reset --hard HEAD.
+  git -C $GIT  reset --hard HEAD
 fi
 
 git -C $GIT pull
