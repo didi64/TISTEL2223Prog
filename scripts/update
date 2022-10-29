@@ -51,5 +51,5 @@ for item in "${args[@]}"; do
   fi  
 done
 
-chmod 755 ${notebooks}/*.ipynb
+chmod 644 ${notebooks}/*.ipynb
 echo -e "$help"
