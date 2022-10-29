@@ -43,7 +43,7 @@ cp ~/Jupyterlab/TISTEL2223Prog/scripts/jlab /usr/local/bin/.
 # starte Jupyterlab
 jlab
 
-
+# stoppe den Jupyterlab Server mit CONTROL-C im git-bash
 
 
 
