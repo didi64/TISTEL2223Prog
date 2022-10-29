@@ -9,7 +9,7 @@ contents="${GIT}/contents.txt"
 
 is_number='^[0-9]+$'
 
-help="\nUsage: Update [<file>| <number>]\n\nWithout arguments all files are updated, but not copied.\nOtherwise, the file or all files from lessen <number> are updated and copied to notebooks\nIn case of errors: try update -f [<file>| <number>]\n"
+help="\nUsage: Update [<file>| <number>]\n\nWithout arguments all files are updated, but not copied.\nOtherwise, the file or all files from lesson <number> are updated and copied to notebooks\nIn case of errors: try update -f [<file>| <number>]\nIf this fails: try init_tistel"
 
 # function
 process_file () {
@@ -51,4 +51,5 @@ for item in "${args[@]}"; do
   fi  
 done
 
+chmod ${notebooks}/*.ipynb 755
 echo -e "$help"
