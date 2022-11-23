@@ -1,0 +1,6 @@
+Text für ein Textfile
+---------------------
+1. Zeile
+2. Zeile
+3. Zeile
+4. Zeile
