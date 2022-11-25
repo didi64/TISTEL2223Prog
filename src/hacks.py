@@ -12,3 +12,18 @@ def fix_paths(paths):
     '''
     cdw = os.getcwd()[17:]
     return [cdw.count('/') * '../' + 'TISTEL2223Prog/' + path for path in paths]
+
+def notebook_links(notebooks):
+    '''returns a list of markdown links to notebooks
+    
+       notebooks: list of tuples of the form (title, paths below /home/jovyan/work/TISTEL2223Prog/)
+       e.g. notebooks = [('While-Schlaufen', 'L3/For_und_While_Loops.ipynb'), 
+            ('Funktionen', '/L3/Funktionen_I.ipynb'),
+            ('Index- und Slicenotation', 'L4/Indexing_und_Slicing.ipynb'),
+           ]
+    '''       
+    notebooks = [(title, fix_paths([path])[0]) for title, path in notebooks]
+    md = ['- [{}]({})'.format(title, file)\
+          for  title, file in notebooks
+         ]
+    return md
