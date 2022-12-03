@@ -3,8 +3,7 @@
 3:Ueberblick_L3.ipynb Python_ist_interpretiert_dynamisch_getypt.ipynb Private_Variablen_Name_mangling.ipynb Magic_Methods.ipynb Funktionen_I.ipynb if_then_else.ipynb For_und_While_Loops.ipynb Loesungen_L3.ipynb print_as_table.ipynb Demo__L3.ipynb demo_L3.ipynb
 4:Indexing_und_Slicing.ipynb join_split_strip.ipynb range.ipynb Iterieren_ueber_Listen.ipynb Loesungen_L4.ipynb
 5:Demo__L3.ipynb Listcomprehension.ipynb Loesungen_GuessingGame.ipynb Ueberblick_L5.ipynb GuessingGame_Idee2Programm.ipynb Loesungen_L5.ipynb GuessingGame.ipynb For_und_While_Loops.ipynb Modul_tools_erstellen.ipynb guessing_game.py
-6:Aufgaben_Sprachdetektion.ipynb Loesungen_dict.ipynb Sprachdetektion.ipynb dictionaries.ipynb Loesungen_Files.ipynb superleague21_22.csv Files.ipynb Loesungen_Sprachdetektion.ipynb Ueberblick_L6.ipynb Exercises_L6.ipynb Loesungen_Exercises_L6.ipynb Loesungen_Exercises_L6_all.ipynb
-
-
+6:Aufgaben_Sprachdetektion.ipynb Loesungen_dict.ipynb Sprachdetektion.ipynb dictionaries.ipynb Loesungen_Sprachdetektion.ipynb Ueberblick_L6.ipynb Exercises_L6.ipynb Loesungen_Exercises_L6_1.ipynb Loesungen_Exercises_L6_all.ipynb
+7:Ueberblick_L7.ipynb Bemerkungen_Aufgaben_L6_1.ipynb Kantonskuerzel.ipynb Files.ipynb Loesungen_Files.ipynb Aufgabe_cities_L7.ipynb Loesung_cities_L7.ipynb superleague21_22.txt cities.txt 
 
 

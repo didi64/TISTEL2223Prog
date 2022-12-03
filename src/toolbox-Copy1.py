@@ -16,10 +16,7 @@ def _print_as_tuple(tp, widths):
     '''gib tp als Tabellenzeile aus mit Spaltenbreite width'''  
     cols = []
     for item, width in zip(tp, widths):
-        if isinstance(item, int):
-            s = str(item).rjust(width)
-        else:    
-            s = item.ljust(width)
+        s = item.ljust(width)
         cols.append(s)
 
     s = '|'
@@ -35,7 +32,7 @@ def _get_widths(header, data_rows):
     widths = [0] * len(header) 
     for row in [header] + data_rows:
         for i, item in enumerate(row):
-            new_width = max(widths[i], len(str(item)))
+            new_width = max(widths[i], len(item))
             widths[i] = new_width
 
     return widths    
@@ -44,9 +41,7 @@ def print_as_table(header, data_rows):
     '''Gib header und data_rows in Tabellenform aus
     
        header: Tuple mit Spaltennamen
-       data_rows: Liste von Tupeln mit Spalteneintraegen.
-                  Spalteneintraege sind Strings oder Integers.
-                  Integers werden rechtsbuendig ausgegeben.
+       data_rows: Liste von Tupeln mit Spalteneintraegen 
     '''
     col_widths = _get_widths(header, data_rows)
     hline = []
