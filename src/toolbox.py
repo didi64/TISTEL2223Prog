@@ -57,3 +57,19 @@ def print_as_table(header, data_rows):
     rows = [header, hline] + data_rows
     for row in rows:
         _print_as_tuple(row, col_widths)    
+        
+from ipywidgets import Output
+def out_with_printer(clear_output = True):
+    '''returns an Output-Widget and a function print_to_out
+       that behaves as print but prints to the Output-Widget
+    
+       clear_output: if False, Output-Widget is NOT cleared before printing to it
+    '''
+    out = Output(layout = {'border': '1px solid black'})
+    def printer(*args, **kwargs):
+        if clear_output:
+            out.clear_output()
+        with out:
+            print(*args, **kwargs)
+            
+    return out, printer        
