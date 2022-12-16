@@ -19,7 +19,7 @@ def _print_as_tuple(tp, widths):
         if isinstance(item, int):
             s = str(item).rjust(width)
         else:    
-            s = item.ljust(width)
+            s = str(item).ljust(width)
         cols.append(s)
 
     s = '|'
