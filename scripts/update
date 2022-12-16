@@ -15,7 +15,7 @@ help="\nUsage: Update [<file>| <number>]\n\nWithout arguments all files are upda
 process_file () {
   find "$GIT" -type d -name $1 -exec cp -ri {} "$notebooks" \;
   find "$GIT" -type f -name $1 -exec cp -i {} "$notebooks" \;
-  find "$notebooks" -type f -name "*.ipynb". -exec chmod 644 {} \;
+  find "$notebooks" -type f -name "*.ipynb" -exec chmod 644 {} \;
 }
 
 # parse args 
