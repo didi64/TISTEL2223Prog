@@ -1,0 +1,27 @@
+#!/usr/bin/bash 
+
+# init_ssh
+
+
+sshdir="$HOME/work/.ssh/"
+
+# check args
+
+if [ $# -ne 1 ]; then
+    echo "init_ssh <name>"
+    echo "A new ssh-key pair is generated and stored in ~/work/.ssh/id_<name>[.pub]"
+    exit 1
+fi
+
+sshfile="id_$1"
+if [ -d $sshdir ] && [ -f $sshdir$sshfile ]; then
+    echo "File $sshdir$sshkey already exists"
+    exit 1
+fi    
+
+if [ ! -d $sshdir ]; then
+	mkdir -p ~/work/.ssh
+	chmod 700 ~/work/.ssh
+fi
+
+ssh-keygen -t ed25519 -C "fuer git user $1" -f "$sshdir$sshfile"

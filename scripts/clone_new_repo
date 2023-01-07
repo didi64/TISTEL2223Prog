@@ -1,0 +1,40 @@
+#!/usr/bin/bash 
+
+
+repodir="$HOME/work/git-repos/"
+
+# check args
+if [ $# -ne 3 ]; then
+    echo "soucre clone_new_repo <gitusername>/<repo-name> \"<name>\" \"<email>\""
+    echo "Example:"
+    echo "source clone_new_repo didi64/test \"Dieter Probst\" \"dp@foo.ch\""
+    exit 1
+fi
+
+keyfiles="$HOME/work/.ssh/id_*"
+reponame=$(basename $1)
+n=$(ls -1 $keyfiles |wc -l)
+
+if [ "$n" -lt "2" ]; then
+	echo "no keyfile of the form $keyfiles found!"
+	exit 1
+fi
+
+if [ "$n" -gt "2" ]; then
+	echo "more than one keyfile of the form $keyfiles found!"
+	exit 1
+fi
+
+keyfile=$(ls -1 $keyfiles | head -1)
+
+
+mkdir -p $repodir
+GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes" git -C "$repodir" clone "git@github.com:$1.git" 
+
+## lokales Repo konfigurieren
+cd "$repodir$reponame"
+git config --local user.name "$2"
+git config --local user.email "$3"
+git config --local core.sshCommand "ssh -i $keyfile -o IdentitiesOnly=yes" 
+
+

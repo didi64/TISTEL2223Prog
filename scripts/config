@@ -1,0 +1,8 @@
+# Would only work if 
+# ~./.ssh/config symlinks to ~/work/.ssh/config
+# requires a  container update
+
+Host github
+	HostName github.com
+	IdentityFile ~/work/.ssh/id_<your name>
+	IdentitiesOnly yes

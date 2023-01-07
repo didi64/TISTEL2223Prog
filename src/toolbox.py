@@ -72,4 +72,30 @@ def out_with_printer(clear_output = True):
         with out:
             print(*args, **kwargs)
             
-    return out, printer        
+    return out, printer       
+
+
+import ipywidgets as widgets
+def remove_all_callbacks(widget):
+    '''remove all registered callbacks from the widget'''
+    d =  {'on_mouse_down': '_mouse_down_callbacks', 
+          'on_mouse_up':   '_mouse_up_callbacks',
+          'on_mouse_move': '_mouse_move_callbacks',
+          'on_submit':     '_submission_callbacks', 
+          'on_click':      '_click_handlers',
+         }
+
+    for event_name, dispatcher_name in d.items():
+        dispatcher = getattr(widget, dispatcher_name, None)
+        if not dispatcher: 
+            continue
+        method = getattr(widget, event_name)
+        # use copy!
+        for callback in dispatcher.callbacks.copy():
+            method(callback, remove=True)
+            
+    for name, dict_ in widget._trait_notifiers.items():
+        for value, callbacks in dict_.items():
+            for callback in callbacks.copy():
+                if not isinstance(callback, widgets.trait_types.traitlets.traitlets.ObserveHandler):
+                    widget.unobserve(callback, names = name)            
