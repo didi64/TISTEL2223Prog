@@ -31,7 +31,7 @@ def init(deck, nplayers = 2, player_to_move = 0):
     state['layout']         = {idx: card for idx, card in enumerate(deck)}
     state['face_up']        = ()
     
-    _callback('new_game', state)
+    _callback('new_game', len(deck))
     
 def face_up(i, j):
     '''markiere die ite und jte Karte als 'face_up', 
@@ -39,7 +39,7 @@ def face_up(i, j):
     '''
     if i in state['layout'] and j in state['layout']:
         state['face_up'] = (i, j)
-        _callback('phase_1', state)
+        _callback('phase_1', _cards_face_up())
         
 def face_down():
     '''falls face-up Karten kein Match: drehe sie wieder um, gib Zugrecht an naechsten Spieler
@@ -55,7 +55,7 @@ def face_down():
       
     _next_player(match)   
     state['face_up'] = ()  
-    _callback('phase_2', state)
+    _callback('phase_2', (match, (idx1, idx2)))
     
 def set_callback(callback):
     global _callback
